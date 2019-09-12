@@ -1,0 +1,11 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 10
+    commands:
+      - npm install -g elasticdump
+  build:
+    commands:
+      - bash ./data_stage.sh $ELASTIC_DOMAIN
