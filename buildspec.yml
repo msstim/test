@@ -8,4 +8,4 @@ phases:
       - npm install -g elasticdump
   build:
     commands:
-      - bash ./data_stage.sh $ELASTIC_DOMAIN
+      - bash ./data_stage.sh

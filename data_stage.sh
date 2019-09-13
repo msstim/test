@@ -2,9 +2,8 @@
 
 set -xv
 
-if [[ $1 == "" ]]; then
-    echo "No elasticsearch domain endpoint passed to script"
-    exit 1
-fi
+ENDPOINT=$(aws es describe-elasticsearch-domains --domain-names test-ml-6-2 | grep -i endpoint | awk -F'",' '{ print $1 }' | awk -F': "' '{ print $2 }')
 
-elasticdump --input=./elasticsearch.json --output=$1
+#elasticdump --input=./elasticsearch.json --output="$ENDPOINT"
+elasticdump --help
+echo "$ENDPOINT"
